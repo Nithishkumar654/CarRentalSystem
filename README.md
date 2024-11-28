@@ -1,6 +1,6 @@
 # Car Rental System API
 
-The **Car Rental System API** is a robust RESTful API built using C# and Entity Framework. It provides a comprehensive system for managing a car rental business, including functionality for car booking, availability checks, rental history, and user management. This project follows best practices for building secure and scalable APIs.
+The **Car Rental System API** is a robust RESTful API built using C# and Entity Framework. It provides a comprehensive system for managing a car rental business, including functionality for car booking, availability checks, and user management. This project follows best practices for building secure and scalable APIs.
 
 ---
 
