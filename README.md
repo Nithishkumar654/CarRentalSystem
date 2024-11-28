@@ -85,9 +85,9 @@ The **Car Rental System API** is a robust RESTful API built using C# and Entity 
     - User must be Authenticated
       ![RentCar](images/RentCar.png)
       ![RentCar](images/RentCar1.png)
-      ![RentCar](images/RentDup.png)
-      ![RentCar](images/RentNotAv.png)
-      ![RentCar](images/RentUnauth.png)
+      ![RentCar](images/RentCarDup.png)
+      ![RentCar](images/RentCarNotAv.png)
+      ![RentCar](images/RentCarUnauth.png)
   - `POST /return/carId=&email=`: Return a Car
       ![RentCar](images/ReturnCar.png)
 - **User Controller**
