@@ -101,7 +101,7 @@ namespace CarRentalSystem.Controllers
         [HttpPost("rent")]
         [RoleAuthorize("User")]
         [JwtValidation]
-        public IActionResult RentCar(int carId, string email)
+        public async Task<IActionResult> RentCar(int carId, string email)
         {
             try
             {
@@ -109,7 +109,7 @@ namespace CarRentalSystem.Controllers
                 var user = _userService.GetUserByEmail(email);
                 _carservice.RentCar(carId);
                 _userService.RentCar(carId, user);
-                _notificationService.SendNotification(user.Email, user.Name, car.Make, car.Model, car.PricePerDay);
+                await _notificationService.SendNotification(user.Email, user.Name, car.Make, car.Model, car.PricePerDay);
                 return Ok($"Car Rented Successfully. Price per Day {car.PricePerDay}");
             }
             catch (Exception e)
@@ -127,7 +127,7 @@ namespace CarRentalSystem.Controllers
                 var user = _userService.GetUserByEmail(email);
                 _carservice.RentCar(carId);
                 _userService.ReturnCar(user);
-                return Ok($"Car Rented Successfully. Price per Day {car.PricePerDay}");
+                return Ok($"Car Returned Successfully");
             }
             catch (Exception e)
             {
