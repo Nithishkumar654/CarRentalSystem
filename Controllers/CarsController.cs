@@ -107,8 +107,8 @@ namespace CarRentalSystem.Controllers
             {
                 var car = _carservice.GetCarById(carId);
                 var user = _userService.GetUserByEmail(email);
-                _carservice.RentCar(carId);
                 _userService.RentCar(carId, user);
+                _carservice.RentCar(carId);
                 await _notificationService.SendNotification(user.Email, user.Name, car.Make, car.Model, car.PricePerDay);
                 return Ok($"Car Rented Successfully. Price per Day {car.PricePerDay}");
             }
@@ -125,7 +125,7 @@ namespace CarRentalSystem.Controllers
             {
                 var car = _carservice.GetCarById(carId);
                 var user = _userService.GetUserByEmail(email);
-                _carservice.RentCar(carId);
+                _carservice.ReturnCar(carId);
                 _userService.ReturnCar(user);
                 return Ok($"Car Returned Successfully");
             }

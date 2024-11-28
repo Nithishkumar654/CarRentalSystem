@@ -10,6 +10,24 @@ namespace CarRental_System.Services
             this._carRepo = carRepository;
         }
         public void RentCar(int id){
+            try
+            {
+                if (CheckCarAvailability(id))
+                {
+                    _carRepo.ToggleAvailability(id);
+                }
+                else
+                {
+                    throw new Exception("Car Not Available");
+                }
+            }catch(Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
+
+        public void ReturnCar(int id)
+        {
             _carRepo.ToggleAvailability(id);
         }
 
